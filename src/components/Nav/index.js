@@ -7,9 +7,15 @@ const Nav = (props) => {
         currentCategory,
     } = props;
 
+    const handleClick = (item) => {
+        console.log(item);
+        return item;
+      };
+
     useEffect(() => {
         document.title = currentCategory.name;
     }, [currentCategory]);
+    
     return (
         <header className='flex-row px-1'>
             <h2>
@@ -22,7 +28,7 @@ const Nav = (props) => {
                         <a data-testid="about" href='#about'>About me</a>
                     </li>
                     <li className='mx-2'>
-                        <span>Contact</span>
+                        <span onClick={() => handleClick('Contact')}>Contact</span>
                     </li>
                     {
                         categories.map((category) => (
